@@ -19,11 +19,21 @@ public abstract class Game {
 
     private void handleGameState() {
         switch (gameState) {
-            case LOBBY -> handleLobbyState();
-            case STARTING -> handleStartingState();
-            case STARTED -> handleStartedState();
-            case STOPPING -> handleStoppingState();
-            case STOPPED -> handleStoppedState();
+            case LOBBY:
+                handleLobbyState();
+                break;
+            case STARTING:
+                handleStartingState();
+                break;
+            case STARTED:
+                handleStartedState();
+                break;
+            case STOPPING:
+                handleStoppingState();
+                break;
+            case STOPPED:
+                handleStoppedState();
+                break;
         }
     }
 
