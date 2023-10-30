@@ -3,6 +3,7 @@ package com.davidout.api.minecraft.minigame;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +22,12 @@ public class GameDetails {
     public UUID getGameId() {return this.uuid;}
     public List<Player> getPlayers() {return players;}
     public List<Player> getSpectators() {return spectators;}
+
+    public List<Player> getPlayersAndSpectators() {
+        List<Player> returned = new ArrayList<>(players);
+        returned.addAll(spectators);
+        return returned;
+    }
 
 
     public void addPlayer(Player player) {

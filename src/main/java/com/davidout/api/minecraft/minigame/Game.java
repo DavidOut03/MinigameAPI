@@ -2,7 +2,7 @@ package com.davidout.api.minecraft.minigame;
 
 import java.util.UUID;
 
-public abstract class Game {
+public abstract class Game implements IGame {
 
     private final GameDetails details;
     private GameState gameState;
@@ -14,10 +14,10 @@ public abstract class Game {
 
     public void setGameState(GameState newGameState) {
         this.gameState = newGameState;
-        this.handleGameState();
+        this.toNextGameState();
     }
 
-    private void handleGameState() {
+    private void toNextGameState() {
         switch (gameState) {
             case LOBBY:
                 handleLobbyState();
@@ -36,13 +36,6 @@ public abstract class Game {
                 break;
         }
     }
-
-    public abstract void handleLobbyState();
-    public abstract void handleStartingState();
-    public abstract void handleStartedState();
-    public abstract void handleStoppingState();
-    public abstract void handleStoppedState();
-
 
 
     public GameState getGameState() {
